@@ -14,6 +14,8 @@ form.addEventListener("submit", function(event) {
     const li = document.createElement("li");
     li.classList.add("listItem");
 
+    list.classList.add("show");
+
     const span = document.createElement("span");
     span.textContent = input.value;
     span.classList.add("taskText");
@@ -30,6 +32,10 @@ form.addEventListener("submit", function(event) {
         e.stopPropagation();
         li.remove();
     });
+
+    if (list.children.length === 0) {
+      list.classList.remove("show");
+    }
 
     li.append(span, deleteBtn);
     daftar.append(li);
